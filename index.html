@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Analyst CV/Portfolio website</title>
+  <link rel="stylesheet" href="style.css" />
+   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      background-color: black;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .navbar button {
+      background-color: transparent;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin-left: 15px;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar button:hover {
+      background-color: white;
+      color: black;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px white;
+    }
+   </style>
+</head>
+
+<body>
+
+<!-- Top Bar -->
+<div class="navbar">
+    <button onclick="scrollToSection('about')">ABOUT</button>
+    <button onclick="scrollToSection('corporate-journey')">WORK HISTORY</button>
+    <button onclick="scrollToSection('project')">PROJECTS</button>
+    <button onclick="scrollToSection('testimonials')">TESTIMONIALS</button>
+</div>
+<script>
+  function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+</script>
+
+<header>
+   <img src="assets/myphoto.jpeg" alt="Your Photo" class="profile-pic" /> 
+   <h1 style="margin-bottom: 10px;">PRAVIN INAMDAR</h1>
+   <p style="margin-top: 10px;">SQL Developer | Web Developer | Founder</p>
+</header>
+
+<!-- CV Download -->
+<div class="custom-resume-button-wrapper">
+  <a href="assets/my-cv.pdf" download class="custom-resume-button">DOWNLOAD MY FULL RESUME</a>
+</div>
+
+<!-- SOCIALS VERTICAL -->
+<div id="social-bar">
+      <a href="mailto:psofficial20@gmail.com" title="Send Email"><img src="assets/Email.jpg" alt="Email" /></a>
+      <a href="https://www.linkedin.com/in/pg-psi"><img src="assets/Linkedin.jpg" alt="LinkedIn" /></a>
+      <a href="https://wa.me/917768055461?text=Hi%20Pravin" target="_blank" title="Chat on WhatsApp"><img src="assets/Whatsapp.jpg" alt="WhatsApp" /></a>
+      <a href="https://www.instagram.com/_noturfreakkk_?igsh=czF5NWtmZDJqamNr&utm_source=qr"><img src="assets/Instagram.jpg" alt="Instagram" /></a>
+      <a href="tel:+917768055461" title="Call Pravin"><img src="assets/Call.jpg" alt="Call" /></a>
+</div>
+
+<!-- ABOUT ME SECTION -->
+<section id="about" style="padding: 50px; background-color: #f4f4f4; text-align: center;">
+  <p style="max-width: 1000px; margin: auto; line-height: 1.6;">
+   I am MBA (Finance) student, former SQL Developer at DXC Technology, and founder of AI Web Developers. With a strong background in data, development, and leadership, I’ve built portfolio websites, led student forums, and delivered real-world results in both the finance and tech domains. Whether it’s mentoring students, planning financial literacy events, or designing clean web experiences, I’m driven by learning, collaboration, and innovation.
+  </p>
+</section>
+
+<!-- Corporate Experience -->
+<section id="corporate-journey">
+  
+  <div class="journey-section">
+    
+     <div class="journey-content right">
+      <div class="text">
+        <h3>Founder</h3>
+        <p><strong>AI Web-Works</strong> — June 2024 to Present</p>
+        <p>I’m the founder of AI Web-Works, where I design sleek, responsive portfolio websites and connect aspiring student developers with real-world project experience. I’ve served multiple clients so far and I am actively growing the platform’s AI capabilities.</p>
+      </div>
+      <div class="logo">
+        <img src="logo3.png" alt="AI Web-Works">
+      </div>
+    </div>
+
+    <div class="journey-content left">
+      <div class="text">
+        <h3>Risk Analyst (Intern)</h3>
+        <p><strong>Neovision Finnvest</strong> — June 2024 to August 2024</p>
+        <p>I interned as a Risk Analyst at Neovision Finnvest, where I assessed client profiles for loan eligibility based on financial data like income, liabilities, and risk appetite. I also authored a report on risk analysis models, contributing to more informed lending decisions.</p>
+      </div>
+      <div class="logo">
+        <img src="assets/finnvest.png" alt="DXC Technology">
+      </div>
+    </div>
+
+    <div class="journey-content right">
+      <div class="logo">
+        <img src="assets/DXC.png" alt="DXC Technology">
+      </div>
+      <div class="text">
+        <h3>SQL Developer</h3>
+        <p><strong>DXC Technology</strong> — Feb 2022 to May 2024</p>
+        <p>At DXC Technology, I worked as a SQL Developer, supporting five major UK banks. My role focused on maintaining financial application stability, analyzing data using SQL, and improving operational efficiency through strong process documentation.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+<script>
+  function handleScroll() {
+    const elements = document.querySelectorAll('.journey-content');
+    elements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight - 100 && rect.bottom > 100;
+      el.classList.toggle('visible', isVisible);
+    });
+  }
+  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('load', handleScroll);
+</script>
+
+<!-- PROJECTS SECTION WITH SLIDES -->
+<section id="project">
+  <div style="position: relative;">
+    <button id="leftBtn" style="position: absolute; left: 0; top: 40%; transform: translateY(-50%); background-color: transparent; border: none; font-size: 30px; cursor: pointer;">&#10094;</button>
+    <button id="rightBtn" style="position: absolute; right: 0; top: 40%; transform: translateY(-50%); background-color: transparent; border: none; font-size: 30px; cursor: pointer;">&#10095;</button>
+
+    <!-- SLIDER -->
+    <div class="slider" id="slider" style="
+      display: flex;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      gap: 20px;
+      padding: 10px 40px;
+    ">
+    
+      <!-- PROJECT CARDS -->
+      <div class="slide" style="
+        flex: none;
+        width: 300px;
+        border: 1px solid #ccc;
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        background: #f9f9f9;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      ">
+        <h3 style="color: #4caf50; font-size: 20px;">Interactive Financial Dashboard</h3>
+        <p style="font-size: 14px; color: #555;">Currently developing an interactive Financial Dashboard using Power BI, designed to visualize complex stock trends, P/E ratios, and key financial performance indicators (KPIs) across diverse industries. This tool incorporates dynamic filters and intuitive graphs to empower informed decision-making for investors and financial analysts.</p>
+      </div>
+
+      <div class="slide" style="
+        flex: none;
+        width: 300px;
+        border: 1px solid #ccc;
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        background: #f9f9f9;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      ">
+        <h3 style="color: #4caf50; font-size: 20px;">Personal Portfolio Website</h3>
+        <p style="font-size: 14px; color: #555;">Created a comprehensive, self-designed portfolio website to showcase my professional journey and capabilities. The site features detailed sections on education, social presence, work experience, past projects, and client testimonials, serving as a dynamic online resume and a demonstration of web development proficiency.</p>
+      </div>
+
+      <div class="slide" style="
+        flex: none;
+        width: 300px;
+        border: 1px solid #ccc;
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        background: #f9f9f9;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      ">
+        <h3 style="color: #4caf50; font-size: 20px;">Credit Card Eligibility Checker</h3>
+        <p style="font-size: 14px; color: #555;">Designed and implemented a web-based application that streamlines credit card eligibility checks. Users input basic personal and financial details, which are processed against a prototype database to instantly determine eligibility, demonstrating a practical application of data-driven decision-making in financial services.</p>
+      </div>
+
+      <div class="slide" style="
+        flex: none;
+        width: 300px;
+        border: 1px solid #ccc;
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        background: #f9f9f9;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      ">
+        <h3 style="color: #4caf50; font-size: 20px;">Air Quality Detection System</h3>
+        <p style="font-size: 14px; color: #555;">Developed a compact and portable Air Quality Detection system using Arduino UNO and an MQ9 sensor. This device accurately identifies and quantifies various harmful gases like carbon monoxide, carbon dioxide, acetone, and toluene in parts per million (ppm), enabling real-time environmental monitoring.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOVER ANIMATIOM + SLIDER SCROLL BUTTON -->
+<script>
+  const slider = document.getElementById('slider');
+  document.getElementById('leftBtn').onclick = () => slider.scrollBy({ left: -320, behavior: 'smooth' });
+  document.getElementById('rightBtn').onclick = () => slider.scrollBy({ left: 320, behavior: 'smooth' });
+
+  // Hover effect on slides
+  const slides = document.querySelectorAll('.slide');
+  slides.forEach(slide => {
+    slide.addEventListener('mouseenter', () => {
+      slide.style.transform = 'scale(1.03)';
+      slide.style.boxShadow = '0 6px 10px rgba(0,0,0,0.15)';
+    });
+    slide.addEventListener('mouseleave', () => {
+      slide.style.transform = 'scale(1)';
+      slide.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+    });
+  });
+</script>
+
+
+<!-- TESTIMONIALS SECTION -->
+<section id="testimonials" style="padding: 50px; background-color: #f9f9f9;">
+  <h2>Testimonials</h2>
+  <div style="max-width: 800px; margin: auto;">
+    <blockquote style="font-style: italic; border-left: 4px solid #4caf50; padding-left: 15px; margin-bottom: 30px;">
+     "Professional, responsive, and detail-oriented. Pravin created a sleek portfolio that reflects my role and achievements perfectly. Highly satisfied with the result."
+     <br>
+     <strong>
+      - <a href="https://www.linkedin.com/in/ketki-chandankhede-1b0878255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" style="text-decoration: none; color: inherit;">Ketki Chandankhede, Account Manager</a>
+     </strong>
+   </blockquote>
+
+   <blockquote style="font-style: italic; border-left: 4px solid #2196f3; padding-left: 15px; margin-bottom: 30px;">
+     "Pravin delivered a clean, functional website showcasing our events and team—perfectly capturing our vision. Smooth experience from start to finish."
+     <br>
+     <strong>
+      - <a href="https://www.linkedin.com/in/finance-forum-mit-wpu?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" style="text-decoration: none; color: inherit;">Finance Forum, MIT World Peace University</a>
+     </strong>
+   </blockquote>
+
+   <blockquote style="font-style: italic; border-left: 4px solid #ff9800; padding-left: 15px; margin-bottom: 30px;">
+     "An amazing website for my portfolio. It’s clean, fast, and easy to navigate. Very satisfied."
+     <br>
+     <strong>
+      - <a href="https://www.linkedin.com/in/ayush-jain-064a7826a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" style="text-decoration: none; color: inherit;">Ayush Jain, Finance Student</a>
+     </strong>
+   </blockquote>
+
+  </div>
+</section>
+  
+<!-- BOTTOM- SOCIALS & PAGE NAVIGATOR -->
+<footer>
+  <div class="socials">
+    <div class="footer-icons">
+      <a href="mailto:psofficial20@gmail.com" title="Send Email"><img src="assets/Email.jpg" alt="Email" /></a>
+      <a href="https://www.linkedin.com/in/pg-psi"><img src="assets/Linkedin.jpg" alt="LinkedIn" /></a>
+      <a href="https://wa.me/917768055461?text=Hi%20Pravin" target="_blank" title="Chat on WhatsApp"><img src="assets/Whatsapp.jpg" alt="WhatsApp" /></a>
+      <a href="https://www.instagram.com/_noturfreakkk_?igsh=czF5NWtmZDJqamNr&utm_source=qr"><img src="assets/Instagram.jpg" alt="Instagram" /></a>
+      <a href="tel:+917768055461" title="Call Pravin"><img src="assets/Call.jpg" alt="Call" /></a>
+    </div>
+   <div class="socials-text">
+      © 2025 Pravin Inamdar | All rights reserved
+   </div>
+  </div>
+</footer>
+
+
+<!-- CERTIFICATIONS SECTION
+<section id="certifications" style="padding: 50px; background-color: #f8f9fa; font-family: sans-serif;">
+  <h2 style="text-align: center; font-size: 2.2em; margin-bottom: 30px; color: #333;">Certifications</h2>
+  <div id="certification-list" style="display: flex; flex-direction: column; align-items: center; gap: 20px;"></div>
+</section>
+
+<script>
+  const certifications = [
+    {
+      title: "Google Data Analytics Certificate",
+      issuer: "Coursera | Google",
+      date: "April 2024",
+      link: "https://www.coursera.org/account/accomplishments/certificate/EXAMPLE"
+    },
+    {
+      title: "Financial Markets",
+      issuer: "Yale University | Coursera",
+      date: "March 2024",
+      link: "https://www.coursera.org/account/accomplishments/certificate/EXAMPLE"
+    },
+    {
+      title: "Power BI for Beginners",
+      issuer: "Udemy",
+      date: "January 2024",
+      link: "https://www.udemy.com/certificate/EXAMPLE"
+    },
+    {
+      title: "HTML, CSS & JavaScript for Web Developers",
+      issuer: "Johns Hopkins University | Coursera",
+      date: "February 2024",
+      link: "https://www.coursera.org/account/accomplishments/certificate/EXAMPLE"
+    }
+  ];
+
+  const container = document.getElementById("certification-list");
+
+  certifications.forEach(cert => {
+    const card = document.createElement("div");
+    card.style.cssText = `
+      background: white;
+      width: 80%;
+      max-width: 600px;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    `;
+    card.onmouseenter = () => {
+      card.style.transform = "scale(1.02)";
+      card.style.boxShadow = "0 6px 12px rgba(0,0,0,0.15)";
+    };
+    card.onmouseleave = () => {
+      card.style.transform = "scale(1)";
+      card.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
+    };
+
+    card.innerHTML = `
+      <h3 style="margin-bottom: 5px; color: #4caf50;">${cert.title}</h3>
+      <p style="margin: 0; color: #555;"><strong>Issued by:</strong> ${cert.issuer}</p>
+      <p style="margin: 5px 0 10px; color: #777;"><strong>Date:</strong> ${cert.date}</p>
+      <a href="${cert.link}" target="_blank" style="color: #007bff; text-decoration: none;">View Certificate</a>
+    `;
+
+    container.appendChild(card);
+  });
+</script>
+-->
+</body>
+</html>
+
+<!-- For Smooth scrolling effect -->
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+
